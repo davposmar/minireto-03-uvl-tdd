@@ -62,8 +62,16 @@ def count_features(model_path: Path) -> int:
     return count
 
 
+def classify_model_size_case_tiny(feature_count: int) -> str:
+    if (feature_count >= 1 and feature_count <= 5):
+        return "tiny"
+    return ''
+
+
 def classify_model_size(feature_count: int) -> str:
-    raise NotImplementedError("Implementar mediante TDD")
+    classification = ''
+    classification += classify_model_size_case_tiny(feature_count)
+    return classification
 
 
 def validate_catalog(
