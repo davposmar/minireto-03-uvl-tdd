@@ -61,17 +61,12 @@ def count_features(model_path: Path) -> int:
         raise ValueError(f"{model_path} no contiene características reconocibles")
     return count
 
-
-def classify_model_size_case_tiny(feature_count: int) -> str:
-    if (feature_count >= 1 and feature_count <= 5):
+def classify_model_size(feature_count: int) -> str:
+    if feature_count < 1:
+        raise ValueError("Debe ser mayor que 0")
+    elif feature_count <= 5:
         return "tiny"
     return ''
-
-
-def classify_model_size(feature_count: int) -> str:
-    classification = ''
-    classification += classify_model_size_case_tiny(feature_count)
-    return classification
 
 
 def validate_catalog(

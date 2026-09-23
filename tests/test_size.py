@@ -13,3 +13,8 @@ def test_two_feature_is_tiny():
  
 def test_three_feature_is_not_tiny():
     assert classify_model_size(6) != "tiny"
+
+
+def test_four_feature_is_invalid():
+    with pytest.raises(ValueError):
+        classify_model_size(0)
